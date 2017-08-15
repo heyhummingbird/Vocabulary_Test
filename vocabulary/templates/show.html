@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>Vocabulary Test</title>
+        <!-- Bootstrap -->
+        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/bootstrap/css/base.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Quattrocento+Sans|Forum" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>Vocabulary Test</h1>
+        </div>
+        <div class="col-md-3">
+            <ul class="nav nav-stacked nav-pills">
+                <li><a href="#">Test</a></li>
+                <li class="active"><a href="#">Show Problem Set</a></li>
+                <li><a href="#">Add Problems</a></li>       
+            </ul>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <ol>
+                {% for word in words %}
+                    <li>{{ word.prob }}: {{ word.ans }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+
+    </body>
+</html>
