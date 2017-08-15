@@ -15,10 +15,16 @@
         <div class="page-header">
             <h1>Vocabulary Test</h1>
         </div>
-
+        <div class="container">
+            <ul class="nav nav-pills navbar-right">
+                <li><a href="/">Test</a></li>
+                <li><a href="/show">Show Problem Set</a></li>
+                <li class="active"><a href="#">Add Problems</a></li>       
+            </ul>
+        </div>
+        <br>
         <div class="jumbotron text-center">
-          <h2 id="prob">Add new vocabulary !</h1>
-          <br>
+          <h2>Add new vocabulary !</h1>
           <form class="form-inline" onsubmit="return false;">
             <input name="eng" 
                    id="eng" 
@@ -26,7 +32,7 @@
                    type="text"
                    class="form-control input-lg" 
                    ></input>
-            <br><br>
+
             <input name="chi" 
                    id="chi" 
                    placeholder="輸入中文"
@@ -36,7 +42,6 @@
             <br><br>
           </form>
           <button class="btn btn-lg" id="add">Add</button>
-
         </div>
         <div class="container">
           <div class="alert alert-success alert-dismissable" 
@@ -77,7 +82,7 @@
                     }
                     else {
                         $("#success_bar").show() ;
-                        document.querySelector("#success_bar").childNodes[2].textContent = 'Successfully added "' + eng + '" into problem set' ;
+                        document.querySelector("#success_bar").childNodes[2].textContent = 'Successfully added "' + eng + '" into problem set.' ;
                     }
                 }).catch(function(err) {
                     alert(err) ;

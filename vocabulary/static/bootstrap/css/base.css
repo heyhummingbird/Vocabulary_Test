@@ -4,10 +4,10 @@
 }
 
 body {
-    font: 22px 'Bellefair', 'Helvetica Neue', '微軟正黑體';
-    font-weight: 400;
-    position: relative;
-    z-index: 1;
+    font: 22px 'Crimson Text', 'Quattrocento Sans', 'Helvetica Neue', '微軟正黑體' ;
+    font-weight: 400 ;
+    position: relative ;
+    z-index: 1 ;
 /*    background: url(/static/bootstrap/img/background-cat.jpg);
     background-size: cover;
 /*    background-
@@ -16,10 +16,19 @@ body {
     */
 }
 
-h1 {
-    font-family: 'Bellefair','Josefin Sans', sans-serif, cursive;
+h1, h2, h3, h4 {
+    font-family: 'Bellefair','Josefin Sans', sans-serif, cursive ;
     font-weight: 300 ;
-    text-align: center;
+    text-align: center ;
+}
+
+.alert {
+    font-family: 'Bellefair','Josefin Sans', sans-serif, cursive ;
+}
+
+.jumbotron>ol {
+    padding-left: 25% ;
+    padding-right: 25% ;
 }
 
 .page-header * {
@@ -30,12 +39,16 @@ h1 {
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
     color: white ;
-    background-color: rgba(50, 198, 232, 0.5) ;
+    background-color: rgba(10, 113, 113, 0.32) ;
 }
 
 .nav-pills a {
     color: #009494 ;
-    font: initial;
+    font: initial ;
+}
+
+.jumbotron {
+    padding: 24px 0 ;
 }
 
 
