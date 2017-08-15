@@ -22,3 +22,10 @@ def add(request):
 		Word.objects.create(prob = body_data['prob'], ans = body_data['ans'])
 #		return HttpResponse
 	return render(request, 'add.html')
+
+def show_problemset(request):
+#	return HttpResponse() ;
+	return render(request, 'show.html', {
+		'words': Word.objects.all(),
+		'num': Word.objects.count()
+	})

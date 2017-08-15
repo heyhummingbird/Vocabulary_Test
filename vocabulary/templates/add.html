@@ -40,7 +40,7 @@
         </div>
         <div class="container">
           <div class="alert alert-success alert-dismissable" 
-               id="correct_bar" style="display:none">
+               id="success_bar" style="display:none">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
           </div>
         </div>
@@ -74,6 +74,10 @@
                 fetch(request).then(function(res) {
                     if (!res.ok) {
                         alert("error!") ;
+                    }
+                    else {
+                        $("#success_bar").show() ;
+                        document.querySelector("#success_bar").childNodes[2].textContent = 'Successfully added "' + eng + '" into problem set' ;
                     }
                 }).catch(function(err) {
                     alert(err) ;

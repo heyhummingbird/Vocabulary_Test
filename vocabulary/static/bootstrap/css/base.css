@@ -4,7 +4,7 @@
 }
 
 body {
-    font: 20px 'Bellefair', 'Helvetica Neue', '微軟正黑體';
+    font: 22px 'Bellefair', 'Helvetica Neue', '微軟正黑體';
     font-weight: 400;
     position: relative;
     z-index: 1;
@@ -25,8 +25,19 @@ h1 {
 .page-header * {
     font-family: 'Josefin Sans' ;
     font-size: 2em ;
-    color: #009494;
+    color: #009494 ;
 }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: white ;
+    background-color: rgba(50, 198, 232, 0.5) ;
+}
+
+.nav-pills a {
+    color: #009494 ;
+    font: initial;
+}
+
 
 .button {
     background-color: #d0d0d0; /* Green */
