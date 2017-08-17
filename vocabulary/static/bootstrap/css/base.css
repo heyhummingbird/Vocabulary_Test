@@ -8,12 +8,6 @@ body {
     font-weight: 400 ;
     position: relative ;
     z-index: 1 ;
-/*    background: url(/static/bootstrap/img/background-cat.jpg);
-    background-size: cover;
-/*    background-
-    
-    background-color: rgba(240, 240, 200, 0.3);
-    */
 }
 
 h1, h2, h3, h4 {
@@ -51,6 +45,9 @@ h1, h2, h3, h4 {
     padding: 24px 0 ;
 }
 
+li {
+    line-height: 180% ;
+}
 
 .button {
     background-color: #d0d0d0; /* Green */

@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
     url(r'^add/$', views.add),
+    url(r'^data/$', views.data),
     url(r'^new/$', views.new),
     url(r'^show/$', views.show_problemset)
 ]

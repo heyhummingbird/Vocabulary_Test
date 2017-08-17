@@ -70,7 +70,7 @@
                 chi = document.querySelector("#chi").value ;
                 document.querySelector("#eng").value = "" ;
                 document.querySelector("#chi").value = "" ;
-                var request = new Request('', {
+                var request = new Request('/data/', {
                     method: "post", 
                     body: JSON.stringify({"prob": eng, "ans": chi}),
                     headers: headers,
