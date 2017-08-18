@@ -2,8 +2,12 @@ var problem ;
 var answer ;
 var correct_bar, wrong_bar, answer_bar;
 var prob_node ;
+var next_state = { change:false } ;
 
 $(function () {
+	document.body.style.setProperty("--button-green", "rgb(177,216,161)") ;
+	document.body.style.setProperty("--button-red", "#eca5a5") ;
+
 	correct_bar = $("#correct_bar") ;
 	wrong_bar = $("#wrong_bar") ;
 	answer_bar = $("#answer_bar") ;
@@ -11,26 +15,42 @@ $(function () {
 
 	ChangeQuestion() ;
 	
-	$("#next").on('click', ChangeQuestion) ;
+	$("#next").on('click', function() { Next(next_state); }) ;
 	$("#show_answer").on('click', ShowAnswer) ;
 }) ;
 
-function SubmitAnswer(e) {
-	HideBars() ;
-	console.log(e) ;
-	console.log(e.target.childNodes[3].value) ;
+function SubmitAnswerByEnter(e) {
+//	console.log(e) ;
+//	console.log(e.target.childNodes[3].value) ;
 	var usr_ans = e.target.childNodes[3].value ;
-	console.log(usr_ans + " vs. " + answer) ;
+	SubmitAnswer(usr_ans) ;
+	next_state.change = true ;
+	return ;
+}
 
+function SubmitAnswer(usr_ans) {
+	HideBars() ;
+//	console.log(usr_ans + " vs. " + answer) ;
 	if (usr_ans === answer) {
 		correct_bar.show() ;
-		console.log("correct") ;
+		document.querySelector("#next").style.background="var(--button-green)" ;
+//		console.log("correct") ;
 	}
 	else {
 		wrong_bar.show() ;
-		console.log("wrong") ;
+		document.querySelector("#next").style.background="var(--button-red)" ;
+//		console.log("wrong") ;
 	}
-	return ;
+}
+
+function Next(state) {
+	if (state.change) {
+		ChangeQuestion() ;
+	}
+	else {
+		SubmitAnswer(document.querySelector("#input_answer").value) ;
+	}
+	state.change = !state.change ;
 }
 
 function ShowAnswer() {
@@ -48,6 +68,7 @@ function HideBars() {
 function ChangeQuestion() {
 // init status
 	HideBars() ;
+	document.querySelector("#next").style.background="" ;
 	document.querySelector("#input_answer").value = "" ;
 	$("#input_answer").focus();
 
@@ -56,13 +77,13 @@ function ChangeQuestion() {
 		method: "get"
 	})
 	fetch(new_request).then(function(res) {
-		console.log(res) ;
+//		console.log(res) ;
 		if (res.ok) {
 			res.json().then(function(data) {
 				problem = data.prob ;
 				answer = data.ans ;
-				console.log(problem) ;
-				console.log(answer) ;
+//				console.log(problem) ;
+//				console.log(answer) ;
 				prob.innerHTML = problem ;
 			}) ;
 		}
