@@ -27,8 +27,10 @@
             <div class="jumbotron">
                 <ol>
                     {% for word in words %}
-                        <li id="{{ word.id }}">{{ word.prob }}: {{ word.ans }} 
-                            <a class="close" href="javascript:Delete({{ word.id }});">×</a>
+                        <li id="{{ word.id }}"><p>{{ word.prob }}: {{ word.ans }} 
+                            <span style="float: right;">{{ word.correct_count }}/{{ word.all_count}} &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="close" href="javascript:Delete({{ word.id }});" style="margin-top: 8px;">×</a>
+                            </span></p>
                         </li>
                     {% endfor %}
                 </ol>

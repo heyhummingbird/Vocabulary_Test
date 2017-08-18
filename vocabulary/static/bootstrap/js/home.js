@@ -1,8 +1,19 @@
 var problem ;
 var answer ;
+var word_id ;
 var correct_bar, wrong_bar, answer_bar;
 var prob_node ;
 var next_state = { change:false } ;
+
+var headers = new Headers();
+headers.append('X-CSRFToken', getCookie('csrftoken'));
+headers.append('Accept', "application/json");
+headers.append('Content-Type', "application/json");
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
 
 $(function () {
 	document.body.style.setProperty("--button-green", "rgb(177,216,161)") ;
@@ -34,6 +45,17 @@ function SubmitAnswer(usr_ans) {
 	if (usr_ans === answer) {
 		correct_bar.show() ;
 		document.querySelector("#next").style.background="var(--button-green)" ;
+		fetch('', {
+			method: 'post', 
+			body: JSON.stringify({'word_id': word_id}),
+			headers: headers,
+			credentials: 'include'
+		}).then(function(res) {
+			if (!res.ok) 
+				alert('increase correct times error!')
+		}).catch(function(err) {
+			alert("Error!") ;
+		})
 //		console.log("correct") ;
 	}
 	else {
@@ -66,13 +88,13 @@ function HideBars() {
 }
 
 function ChangeQuestion() {
-// init status
+/* init status */
 	HideBars() ;
 	document.querySelector("#next").style.background="" ;
 	document.querySelector("#input_answer").value = "" ;
 	$("#input_answer").focus();
 
-// fetch to get new problem and answer
+/* fetch to get new problem and answer and wor_id */
 	var new_request = new Request('new/', {
 		method: "get"
 	})
@@ -82,6 +104,7 @@ function ChangeQuestion() {
 			res.json().then(function(data) {
 				problem = data.prob ;
 				answer = data.ans ;
+				word_id = data.word_id ;
 //				console.log(problem) ;
 //				console.log(answer) ;
 				prob.innerHTML = problem ;
