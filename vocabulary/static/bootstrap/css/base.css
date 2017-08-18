@@ -1,3 +1,8 @@
+:root {
+    --button-green: rgb(177,216,161) ;
+    --button-red: #eca5a5 ;
+}
+
 #id_list_table {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px 5px 5px 5px
@@ -33,7 +38,11 @@ h1, h2, h3, h4 {
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
     color: white ;
-    background-color: rgba(10, 113, 113, 0.32) ;
+    background-color: rgba(173, 218, 218, 0.8) ;
+}
+
+.nav-pills>li>a {
+    background-color: rgba(230, 230, 230, 0.19) ;
 }
 
 .nav-pills a {
@@ -49,26 +58,10 @@ li {
     line-height: 180% ;
 }
 
-.button {
-    background-color: #d0d0d0; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-family: cursive;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-.button1 {
-    background-color: white;
-    color: black;
-    font-family: 'Quattrocento Sans', perpetua;
-    font-size: 75% ;
-    border: 2px solid #A9A9A9; /* Green */
-    margin: 2px 2px;
+
+.btn {
+    background-color: silver ;
+    /* 177 216 161*/
 }
 
 .delete {
