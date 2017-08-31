@@ -4,7 +4,7 @@ from random import choice
 from vocabulary.models import Word
 import json
 
-const = 25
+const = 20
 
 def index(request):
 	if request.method == 'POST':
